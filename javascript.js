@@ -426,10 +426,6 @@
 // console.log(Array.isArray(nonArray));
 
 
-
-
-
-
 // //ANONYMOUS FUNCTIONS
 // //FUNCTION KEYWORD METHOD
 // (function() {
@@ -503,82 +499,196 @@
 // //example
 
 //WITHOUT ARGUMENT, PARAMETER IS USED
-const greet = (r = "Hello") => {
-  return r + " Victor";
-}
-
-console.log(greet());
-
-//WITH ARGUMENT, MAKES USE OF ARGUMENT
-const greet2 = (param = "Hello" ) => {
-  return param + " Victor"
-}
-
-console.log(greet2("Afternoon"));
-
-// EXAMPLE 2
-const add = (num = 2) => num + 5
-
-console.log(add(4));
-
-// //UNLIMITED ARGUMENTS IN FUNCTION DECLARATION
-// function sumAll() {
-//   return arguments
+// const greet = (r = "Hello") => {
+//   return r + " Victor";
 // }
 
-// console.log(sumAll(1,2,3,4,5));
+// console.log(greet());
 
-// alert()
-// prompt()
+//WITH ARGUMENT, MAKES USE OF ARGUMENT
+// const greet2 = (param = "Hello" ) => {
+//   return param + " Victor"
+// }
 
-// window.alert()
+// console.log(greet2("Afternoon"));
 
-// let, var and const keywords
+// // EXAMPLE 2
+// const add = (num = 2) => num + 5
 
-// var
-let b = 6;
-const func = () => {
-  if (true) {
-    let a = 5;
-    var b = 7;
-  }
-  // console.log(a);
-  console.log(b);
-  b = 10
-  console.log(b);
-  // c = 11
-  // console.log(c);
-}
+// console.log(add(4));
 
-func();
-console.log(b);
+// // //UNLIMITED ARGUMENTS IN FUNCTION DECLARATION
+// // function sumAll() {
+// //   return arguments
+// // }
 
-const array = [1,2,3,4]
+// // console.log(sumAll(1,2,3,4,5));
 
-for (let index = 0; index < array.length; index++) {
-  const element = array[index];
-}
+// // alert()
+// // prompt()
 
-console.log(index);
+// // window.alert()
+
+// // let, var and const keywords
+
+// // var
+// let b = 6;
+// const func = () => {
+//   if (true) {
+//     let a = 5;
+//     var b = 7;
+//   }
+//   // console.log(a);
+//   console.log(b);
+//   b = 10
+//   console.log(b);
+//   // c = 11
+//   // console.log(c);
+// }
+
+// func();
+// console.log(b);
+
+// const array = [1,2,3,4]
+
+// for (let index = 0; index < array.length; index++) {
+//   const element = array[index];
+// }
+
+// console.log(index);
 
 
+// const obj = {
+//   num1: 1,
+//   num2: 2,
+//   num3: "Three",
+//   arr1: [1,2,3,4,5,6],
+//   obj2: {
+//     1:1, 
+//     2:2, 
+//     3:3,
+//     func2: function() {
+//       return "Nested Function"
+//     }
+//   },
+//   undef: undefined,
+//   null: null,
+//   func: function() {
+//     return "Hello"
+//   }
+// };
+
+//ACCESS AN ARRAY VALUE FROM AN OBJECT
+// console.log(obj.arr1[obj.arr1.length - 1]);
+
+// // obj.obj2.func2 = function() {
+// //   return "Nested function"
+// // }
+
+// obj["obj2"]["func3"] = function() {
+//   return "Nested 3"
+// }
+
+// console.log(obj.obj2.func2());
+
+// console.log(obj.num1);
+// // console.log(obj.obj2);
+// console.log(obj["null"]);
+// // console.log(obj["arr1"]);
+
+
+// //A function in an object is Method
+// // obj.func = function() {
+// //   return "Hello"
+// // }
+
+// console.log(obj.func());
+// console.log(obj);
+
+
+// console.log(obj.arr1.at(-1));
+
+// let result;
+// for (let i = 0; i <= obj.arr1.length; i++) {
+//   if (i === 6) {
+//     result = i
+//   }
+// }
+// console.log(result);
+
+
+// console.log(obj["arr1"].indexOf(6));
 const obj = {
   num1: 1,
   num2: 2,
   num3: "Three",
-  arr1: [1,2,3,4,5,6],
-  obj2: {1:1, 2:2, 3:3},
+  arr1: [1, 2, 3, 4, "5", 6],
+  obj2: {
+    1: 1,
+    2: 2,
+    3: 3,
+    func2: function () {
+      return "Nested Function";
+    },
+    testObj: {one:1, two:2, three:3}
+  },
   undef: undefined,
-  null: null
+  null: null,
+  func: function () {
+    return `${this.num1} is not equal to ${this.num2}`;
+  },
+  // func4: () => {
+  //   return alert("Hello")
+  // }
 };
 
-console.log(obj.num1);
-console.log(obj.obj2);
-console.log(obj["null"]);
-console.log(obj["arr1"]);
 
+//this
+//used to access properties of an object inside a function in the object
 
+console.log(obj.func());
+// console.log(obj.func4());
 
+obj.getNum1 = function () {
+  return this.num1
+}
+
+//OBJECT METHODS
+//OBJECT.ASSIGN : SHALLOW CLONING
+//object.assign(newObj, originalOBJ)
+
+const clone = Object.assign({}, obj)
+
+clone.obj2.testObj.two = 10
+console.log(clone);
+console.log(obj);
+
+//STRUCTUREDCLONE
+//USED TO CLONE AN OBJECT DEEPLY
+// const clone2 = structuredClone(obj);
+// clone.obj2.testObj.one = 20;
+// console.log(clone2);
+// console.log(obj);
+
+//OBJECT.KEYS
+
+const myKeys = Object.keys(obj)
+console.log(myKeys);
+
+//OBJECT.VALUES
+const value = Object.values(obj)
+console.log(value);
+
+//OBJECT.ENTRIES
+const entries = Object.entries(obj);
+console.log(entries);
+
+for (const [keys, values] of Object.entries(obj)) {
+  console.log(`${keys} are the keys of our ${values}`);
+}
+
+//HASOWNPROPERTY
+console.log(obj.hasOwnProperty("num1"));
 
 
 
