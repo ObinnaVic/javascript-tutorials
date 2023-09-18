@@ -610,85 +610,126 @@
 
 // let result;
 // for (let i = 0; i <= obj.arr1.length; i++) {
-//   if (i === 6) {
-//     result = i
-//   }
+// //   if (i === 6) {
+// //     result = i
+// //   }
+// // }
+// // console.log(result);
+
+
+// // console.log(obj["arr1"].indexOf(6));
+// const obj = {
+//   num1: 1,
+//   num2: 2,
+//   num3: "Three",
+//   arr1: [1, 2, 3, 4, "5", 6],
+//   obj2: {
+//     1: 1,
+//     2: 2,
+//     3: 3,
+//     func2: function () {
+//       return "Nested Function";
+//     },
+//     testObj: {one:1, two:2, three:3}
+//   },
+//   undef: undefined,
+//   null: null,
+//   func: function () {
+//     return `${this.num1} is not equal to ${this.num2}`;
+//   },
+//   // func4: () => {
+//   //   return alert("Hello")
+//   // }
+// };
+
+
+// //this
+// //used to access properties of an object inside a function in the object
+
+// console.log(obj.func());
+// // console.log(obj.func4());
+
+// obj.getNum1 = function () {
+//   return this.num1
 // }
-// console.log(result);
 
+// //OBJECT METHODS
+// //OBJECT.ASSIGN : SHALLOW CLONING
+// //object.assign(newObj, originalOBJ)
 
-// console.log(obj["arr1"].indexOf(6));
-const obj = {
-  num1: 1,
-  num2: 2,
-  num3: "Three",
-  arr1: [1, 2, 3, 4, "5", 6],
-  obj2: {
-    1: 1,
-    2: 2,
-    3: 3,
-    func2: function () {
-      return "Nested Function";
-    },
-    testObj: {one:1, two:2, three:3}
-  },
-  undef: undefined,
-  null: null,
-  func: function () {
-    return `${this.num1} is not equal to ${this.num2}`;
-  },
-  // func4: () => {
-  //   return alert("Hello")
-  // }
-};
+// const clone = Object.assign({}, obj)
 
-
-//this
-//used to access properties of an object inside a function in the object
-
-console.log(obj.func());
-// console.log(obj.func4());
-
-obj.getNum1 = function () {
-  return this.num1
-}
-
-//OBJECT METHODS
-//OBJECT.ASSIGN : SHALLOW CLONING
-//object.assign(newObj, originalOBJ)
-
-const clone = Object.assign({}, obj)
-
-clone.obj2.testObj.two = 10
-console.log(clone);
-console.log(obj);
-
-//STRUCTUREDCLONE
-//USED TO CLONE AN OBJECT DEEPLY
-// const clone2 = structuredClone(obj);
-// clone.obj2.testObj.one = 20;
-// console.log(clone2);
+// clone.obj2.testObj.two = 10
+// console.log(clone);
 // console.log(obj);
 
-//OBJECT.KEYS
+// //STRUCTUREDCLONE
+// //USED TO CLONE AN OBJECT DEEPLY
+// // const clone2 = structuredClone(obj);
+// // clone.obj2.testObj.one = 20;
+// // console.log(clone2);
+// // console.log(obj);
 
-const myKeys = Object.keys(obj)
-console.log(myKeys);
+// //OBJECT.KEYS
 
-//OBJECT.VALUES
-const value = Object.values(obj)
-console.log(value);
+// const myKeys = Object.keys(obj)
+// console.log(myKeys);
 
-//OBJECT.ENTRIES
-const entries = Object.entries(obj);
-console.log(entries);
+// //OBJECT.VALUES
+// const value = Object.values(obj)
+// console.log(value);
 
-for (const [keys, values] of Object.entries(obj)) {
-  console.log(`${keys} are the keys of our ${values}`);
-}
+// //OBJECT.ENTRIES
+// const entries = Object.entries(obj);
+// console.log(entries);
 
-//HASOWNPROPERTY
-console.log(obj.hasOwnProperty("num1"));
+// for (const [keys, values] of Object.entries(obj)) {
+//   console.log(`${keys} are the keys of our ${values}`);
+// }
+
+// //HASOWNPROPERTY
+// console.log(obj.hasOwnProperty("num1"));
+
+
+
+//HIGHER ORDER FUNCTIONS
+// const callback = (n) => {
+//   return n * 2
+// }
+
+// const multiply = (callback, m) => {
+//   return callback + m
+// }
+
+// console.log(multiply(callback(5), 10));
+
+// setInterval(() => {
+//  console.log("Hello")
+// }, 2000)//2s 2000ms
+
+
+
+//RETURNING FUNCTIONS
+// const higherOrder = (n) => {
+//   const doSomething = (m) => {
+//     const doWhatEver = (t) => {
+//       return 2 * n + 3 * m + t;
+//     };
+//     return doWhatEver;
+//   };
+//   return doSomething;
+// };
+// console.log(higherOrder(2)(3)(10));
+
+// const outmostFunc = (n) => {
+//   const innerFunc = (m) => {
+//     const innerMost = (t) => {
+//       console.log(2 * n + 3 * m + t);
+//     }
+//     console.log(innerMost())
+//   }
+//   console.log(innerFunc());
+// }
 
 
 
