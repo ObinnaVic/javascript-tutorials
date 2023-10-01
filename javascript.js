@@ -731,18 +731,132 @@
 //   console.log(innerFunc());
 // }
 
+//Sorting
+//Sort() : Works best with arrays with string values
+//Sort((a, b) => a-b) If you have number values in your array
+
+// const arr = ["Victor", "Emma", "Goodness", "Adam"]
+
+// arr.sort();
+
+// console.log(arr); //["Adam", "Emma", "Goodness", "Victor"]
+
+// const num = [1, 4, 6, 7, 8, 9, 2]
+
+// //toSorted
+// const newNum = [...num]
+
+// console.log(newNum);
+
+// newNum.sort((a, b) => a - b)
+// console.log(newNum);
+// console.log(num);
+
+// //arr.sort((a, b) => a.localeCompare(b). "de")
+
+// const nonUnique = [1, 2, 1, 4, 4, 5, 5, 6, 7, 1]
+
+// const unique = new Set(nonUnique);
+
+// console.log(unique);
+
+// for (const i of unique) {
+//     console.log(i)
+// }
+
+// //ADDING VALUES TO THE SET (.add)
+
+// unique.add(10);
+// console.log(unique);
+
+// //Deleting values from the set (.delete)
+
+// unique.delete(2);
+
+// console.log(unique);
+
+// //Checking legth of the set (.size)
+
+// console.log(unique.size);
+
+//Clearing the set (.clear);
+
+// unique.clear()
+
+// console.log(unique);
 
 
+// let obj1 = {one: 1, two: 2, three: 3}
+// let obj2 = {one: 1, two: 2, three: 3}
 
+// unique.add(obj1);
+// unique.add(obj2);
 
+// console.log(unique);
 
+// const unique2 = new Set
 
+// console.log(unique2);
+// unique2.add(1)
 
+// console.log(unique2);
 
+//Checking for items present in the array (.has)
 
+// console.log(unique2.has(2));
 
+let a = [1, 2, 3, 4, 5, 6 ,7];
+let b = [3, 4, 5, 6, 7, 8, 9];
+//Union of Set
+// let c = [...a, ...b]
+// console.log(c);
+// let d = new Set(c)
+// console.log(d);
 
+//Intersect of Set
+// let c = a.filter((i) => b.includes(i));
+// console.log(c);
 
+// let c = new Set(b)
+// let d = a.filter((i) => c.has(i));
+// console.log(d);
+
+//Difference of Set
+
+let c = new Set(b);
+console.log(c);
+let d = a.filter((i) => !c.has(i))
+console.log(d);
+
+//MAPPING (Works with Key/Value pairs);
+// const val = 1;
+
+// console.log(val);
+
+const ourMap = new Map();
+const obj = {name: "Victor"}
+const obj2 ={name: "Emma"}
+const newArr = [1, 4, 5, 6]
+
+//Adding values to the map (.set);
+ourMap.set(obj2, newArr)
+ourMap.set(obj, "object")
+ourMap.set("first", 1);
+console.log(ourMap);
+
+//Getting value from a map (.get);
+console.log(ourMap.get(obj2));
+console.log(ourMap.get("first"));
+
+//Checking the length of a map(.size)
+
+console.log(ourMap.size);
+
+//Checking if a key exists in the map (.has)
+
+console.log(ourMap.has("first"));
+
+const arr2 = [2,3,4,5,6,7]
 
 
 
