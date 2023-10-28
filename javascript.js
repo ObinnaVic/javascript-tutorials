@@ -1479,7 +1479,7 @@ class ClassWithGetSet {
   instance.msg = "cake";
   console.log(instance.msg); // "hello cake"
 
-  
+
   
 
 
