@@ -805,9 +805,9 @@
 
 // console.log(unique2.has(2));
 
-let a = [1, 2, 3, 4, 5, 6 ,7];
-let b = [3, 4, 5, 6, 7, 8, 9];
-//Union of Set
+// let a = [1, 2, 3, 4, 5, 6 ,7];
+// let b = [3, 4, 5, 6, 7, 8, 9];
+// //Union of Set
 // let c = [...a, ...b]
 // console.log(c);
 // let d = new Set(c)
@@ -823,51 +823,664 @@ let b = [3, 4, 5, 6, 7, 8, 9];
 
 //Difference of Set
 
-let c = new Set(b);
-console.log(c);
-let d = a.filter((i) => !c.has(i))
-console.log(d);
+// let c = new Set(b);
+// console.log(c);
+// let d = a.filter((i) => !c.has(i))
+// console.log(d);
 
-//MAPPING (Works with Key/Value pairs);
-// const val = 1;
+// //MAPPING (Works with Key/Value pairs);
+// // const val = 1;
 
-// console.log(val);
+// // console.log(val);
 
-const ourMap = new Map();
-const obj = {name: "Victor"}
-const obj2 ={name: "Emma"}
-const newArr = [1, 4, 5, 6]
+// const ourMap = new Map();
+// const obj = {name: "Victor"}
+// const obj2 ={name: "Emma"}
+// const newArr = [1, 4, 5, 6]
 
-//Adding values to the map (.set);
-ourMap.set(obj2, newArr)
-ourMap.set(obj, "object")
-ourMap.set("first", 1);
-console.log(ourMap);
+// //Adding values to the map (.set);
+// ourMap.set(obj2, newArr)
+// ourMap.set(obj, "object")
+// ourMap.set("first", 1);
+// console.log(ourMap);
 
-//Getting value from a map (.get);
-console.log(ourMap.get(obj2));
-console.log(ourMap.get("first"));
+// //Getting value from a map (.get);
+// console.log(ourMap.get(obj2));
+// console.log(ourMap.get("first"));
 
-//Checking the length of a map(.size)
+// //Checking the length of a map(.size)
 
-console.log(ourMap.size);
+// console.log(ourMap.size);
 
-//Checking if a key exists in the map (.has)
+// //Checking if a key exists in the map (.has)
 
-console.log(ourMap.has("first"));
+// console.log(ourMap.has("first"));
 
-const arr2 = [2,3,4,5,6,7]
-
-
+// const arr2 = [2,3,4,5,6,7]
 
 
+//CONSOLE OBJECT METHODS
+//1. console
+//2. document.write
+//3. document.getElementById
+
+//CONSOLE.LOG
+// console.log("Hello")
+
+// //%d : Substitution of digits
+// console.log("%d days of Javascript", 30);
+
+// //%s: substitute strings
+// console.log("30 %s of Javscript", "days");
+
+// //%c : styling consoled texts
+// console.log("%c 30 days of JAVASCRIPT %c", "color: yellow");
+
+
+//REGULAR EXPRESSIONS (REGEXP)
+// (/.../) 
+
+//new RegExp(pattern, flag);
+
+// //Without a flag
+// let text = "Victor"
+// const regEx = new RegExp(text);
+
+// console.log(regEx);
+
+// //With a flag
+// let text2 = "Victor";
+// let flag = "gi";
+// const regEx2 = new RegExp(text2, flag);
+// console.log(regEx2);
+
+
+// //FLAGS
+// // g (Global flag)
+// let sentence = "This is a javascript class";
+//match();
+
+// let pattern = /s/g;
+// let result = sentence.match(pattern)
+// console.log(result);
+
+//i (case insensitive);
+// let pattern = /t/gi
+// let result = sentence.match(pattern);
+// console.log(result);
+
+// m (multiline)
+// \n (signifies new line)
+// let mulitilineSent = "This is a Javascript\nclass and it holds\nevery saturday and sunday";
+
+// //^(start) and $(end)
+// let pattern = /Javascript$/m
+// let result = mulitilineSent.match(pattern);
+// console.log(result);
+
+// let pattern2 = /^class/m
+// let result2 = mulitilineSent.match(pattern2);
+// console.log(result2); 
+
+
+//s (Dot-All) Match all words or characters except the new line character (\n); 
+// let text = "Hello\nWorld";
+// let pattern = /Hello.World/s
+// let result = text.match(pattern);
+// console.log(result);
+
+
+//y (sticky)
+// const text = "ababab";
+// let pattern = /ab/y
+// let result = text.match(pattern);
+// console.log(result);
+// console.log(result);
+// console.log(result);
+
+
+//RegEx Object Methods
+
+//exec() // execution (pattern.exec(text))
+// let text = "This is a javascript class";
+// let pattern = /this/gi
+// //match = text.match(pattern);
+// let result = pattern.exec(text);
+// console.log(result);
+
+//match() 
+// const text = "I love Javascript";
+// const pattern = /love/;
+// let result = text.match(pattern);
+// console.log(result);
+
+//matchAll();
+// const text = "I love Javascript love love love";
+// const pattern = /love/g;
+// let result = text.matchAll(pattern);
+// let arr = [...result];
+// let id = [];
+// for (let i = 0; i < arr.length; i++) {
+//      id.push(arr[i]) 
+// }
+
+// console.log(id);
+// console.log([...result]);
+
+//test()
+// const text = "I love Javascript";
+// const pattern = /love/;
+// let result = pattern.test(text);
+// console.log(result);
+
+
+//search() If match is found, it returns the index, else it returns -1
+// const text = "I love Javascript";
+// const pattern = /Javascript/;
+// const result = text.search(pattern);
+// console.log(result);
+
+//replace() take two parameter, (pattern, substitute word)
+// const text = "I love Javascript htfdssf";
+// const pattern = /Javascript/;
+// const result = text.replace(pattern, () => {
+//     let newText = text.match("Javascript");
+//     return newText[0].toUpperCase();
+// });
+// console.log(result);
+
+
+//Special Characters
+// ^ = start with
+// let text = "I love Javascript";
+// let pattern = /^I/;
+// let result = text.match(pattern)
+// console.log(result);
+
+
+//$ = Ends with
+// let text = "I love Javascript";
+// let pattern = /Javascript$/;
+// let result = text.match(pattern)
+// console.log(result);
+
+//[] = set of characters
+// let text = "I love Javascript8";
+// let pattern = /[A-Za-z0-9]/g;
+// let result = text.match(pattern)
+// console.log(result);
+
+
+//[^] = means what is not//negates
+// let text = "I love Javascript8";
+// let pattern = /[^abc]/g;
+// let result = text.match(pattern)
+// console.log(result);
+
+// \d = matches digits in a string
+// let text = "I love Javascript8789756382";
+// let pattern = /\d/g;
+// let result = text.match(pattern)
+// console.log(result);
+
+// \D = matches everything that is not a digit
+// let text = "I love Javascript8789756382";
+// let pattern = /\D/g;
+// let result = text.match(pattern)
+// console.log(result);
+
+// \b = matches boundaries, that is characters are beside or inbetween spaces, punctuations, and end or start of the string
+// let text = "I loveJavascript 8789756382";
+// let pattern = /\b2/g;
+// let result = text.match(pattern)
+// console.log(result);
+
+// \B = matches charaacters that beside or between words or alphabets or other characters 
+// let text = "Ilove Javascriptlove 8789756382";
+// let pattern = /\Blove/g;
+// let result = text.match(pattern)
+// console.log(result);
+
+
+// {3} = exactly 3 characters
+// let text = "I to lov Javascript love 878 ... 9756382";
+// let pattern = /\w{3}/g;
+// let result = text.match(pattern);
+// console.log(result);
+
+
+// {3,} = atleast 3 characters
+// let text = "I to lov Javascript love 878 9756382";
+// let pattern = /\b\w{3,}\b/g;
+// let result = text.match(pattern);
+// console.log(result);
+
+// {3,9} = characters or words from 3 to 9
+// let text = "I to lov Javascript love 878 9756382";
+// let pattern = /\b\w{3,5}\b/g;
+// let result = text.match(pattern);
+// console.log(result);
+
+// | = OR or Either
+// let text = "I to lov python love 878 9756382";
+// let pattern = /[Jj]avascript|[Pp]ython|love/g;
+// let result = text.match(pattern);
+// console.log(result);
+
+// ? = zero or one time
+// let text = "to Javascriipt 878 9756382";
+// let pattern = /[I]?/g;
+// let result = text.match(pattern);
+// console.log(result);
+
+
+// + = one or more times
+const arr = ["Victor", "Sam", "Emma", "Henry", "Innocent"];
+let result = [];
+for (const i of arr) {
+    let reg = i.match(/[Ii]+/g)
+    if (reg) {
+        result.push(i);
+    }
+}
+
+console.log(result);
+
+// * = zero or more times
+
+
+// . = matches any character except new line "\n" 
+
+// \w = means alphabets, underscores
+
+// \s = adds spaces to the output;
+// let text = "I to lov Javascript love 878 9756382";
+// let pattern = /[I]+\s/g;
+// let result = text.match(pattern);
+// console.log(result);
+
+
+//ERROR HANDLING
+//try and catch
+//try: Wrap a code block that has a possibility of returning an error.
+//catch: Catches and returns any error found in the code block wrapped in the try block.
+
+// try { //contains code to test
+//     let lastName = "Nkire";
+//     let fullName = `${firstName} ${lastName}`
+// } catch (error) { //contains errors
+//     //error: error name and error message
+//     console.log(error.name);    
+// } finally { // contains codes that runs whether there is an error or not.
+//     // console.log(fullName);
+// }
+
+
+//throw
+// try {
+//     let lastName = "Nkire";
+//     let fullName = `${firstName} ${lastName}`
+//     if (firstName === undefined) {
+//         throw new Error("Please enter a first name")
+//     }
+//     return fullName;
+// } catch (error) {
+//     console.log(error.message);
+// }
+
+//Error types
+
+//Reference Error: For undeclared or Undefined errors
+//Syntax Error: * x
+// Type Error: string when suppose to use number;
+  
+
+
+// CLASSES
+
+//Class Expressions
+
+// const Expression = class {
+//     //Our code
+// }
+
+// const expression1 = new Expression();
+// const expression2 = new Expression();
+// const expression3 = new Expression();
+
+
+//Class Declaration
+
+// class Declaration {
+//     //Code
+// }
+
+// const declaration1 = new Declaration();
+// const declaration2 = new Declaration();
+// const declaration3 = new Declaration();
+// const declaration4 = new Declaration();
+
+// console.log(new Date());
+
+
+// const obj= {
+//     func: function() {
+//         return "Hello";
+//     }
+// }
+
+// console.log(obj.func());
+
+// CONSTRUCTOR 
+
+// class Person {
+//     constructor(firstName, lastName) {
+//         console.log(this);
+//         this.firstName = firstName;
+//         this.lastName = lastName
+//     }
+
+//     getFullName() {
+//         return `${this.firstName} ${this.lastName}`
+//     }
+// }
+
+// const person = new Person("Victor", "Nkire");
+
+// console.log(person.getFullName());
+
+// const func = (name = "Victor") => {
+//     return name;
+// }
+
+// console.log(func());
+
+//DEFAULT PARAMETER VALUES
+
+// class Person {
+//     value;
+//     constructor(firstName, lastName, age) {
+//         this.firstName = firstName;
+//         this.lastName = lastName;
+//         this.value = age;
+//     }
+
+//     getFullName() {
+//         return `${this.firstName} ${this.lastName} ${this.value}`
+//     }
+
+//     setAge(value) {
+//         this.value = value;
+//     }
+// }
+
+// const person = new Person("Victor", "Nkire", 50)
+// const person2 = new Person("Emma", "Innocent", 100)
+// const person3 = new Person("Sam", "Willow", 12);
+
+// console.log(person.getFullName());
+// console.log(person2.getFullName());
+
+// person.value = 30;
+// console.log(person.getFullName());
+
+// person.setAge(80)
+// console.log(person.getFullName());
 
 
 
 
+//PRIVATE FIELD (#)
+
+// class Person {
+//     #value;
+
+//     constructor(firstName, lastName, age) {
+//         this.firstName = firstName;
+//         this.lastName = lastName;
+//         this.#value = age;
+//     }
+
+//     getFullName() {
+//         return `${this.firstName} ${this.lastName} ${this.#value}`
+//     }
+
+//     setAge(value) {
+//         this.#value = value;
+//     }
+
+//     #getValuePrivate() {
+//         return this.#value;
+//     }
+
+//     getValue() {
+//         return this.#getValuePrivate();
+//     }
+// }
+
+// const person = new Person("Victor", "Nkire", 80);
+
+// // person.#value = 30;
+// // console.log(person.getFullName());
+
+// person.setAge(50);
+// console.log(person.getFullName());
+// console.log(person.getValue());
+// console.log(person.#getValuePrivate());
+
+// "in" : Used to check values of a different instance of the same class.
+
+// class Color {
+//     #value;
+//     constructor(r, g, b) {
+//         this.#value = [r, g, b];
+//     }
+
+//     redChange(diffColor) {
+//         if(!(#value in diffColor)) {
+//             return;
+//         }
+//         return this.#value[0] = diffColor.#value[0];
+//     }
+
+//     getValues() {
+//         return this.#value;
+//     }
+
+// }
+
+// const color = new Color(30, 20, 70);
+// const diffColor = new Color(10, 15, 22);
+
+// console.log(color.redChange(diffColor));
+
+// console.log(color.getValues());
+
+
+//GETTERS: A method to return/get values in a class. This makes a method read-only;
+
+// class Color {
+//     #value;
+//     constructor(r, g, b) {
+//         this.#value = [r, g, b];
+//     }
+
+//     redChange(diffColor) {
+//         if(!(#value in diffColor)) {
+//             return;
+//         }
+//         return this.#value[0] = diffColor.#value[0];
+//     }
+
+//     get getValues() {
+//         return this.#value;
+//     }
+
+// }
+
+// const color = new Color(20, 30, 40);
+
+// console.log(color.getValues);
 
 
 
+//SETTERS: Method to set or modify values in your class. It is read and write enabled.
+
+// class Color {
+//     value;
+//     constructor(r, g, b) {
+//         this.value = [r, g, b];
+//     }
+
+//     redChange(diffColor) {
+//         if(!(value in diffColor)) {
+//             return;
+//         }
+//         return this.value[0] = diffColor.value[0];
+//     }
+
+//     get getValues() {
+//         return this.value;
+//     }
+
+//     set modifyValue(num) {
+//         this.value = this.value.push(num);
+//     }
+
+// }
+
+// const color = new Color(20, 30, 40);
+
+// // color.modifyValue(20);
+
+// console.log(color.value);
+
+
+//STATIC METHOD
+
+// class Color {
+//     value;
+//     constructor() {
+//         this.value = [20, 30, 40];
+//     }
+
+//     redChange(diffColor) {
+//         if(!(value in diffColor)) {
+//             return;
+//         }
+//         return this.value[0] = diffColor.value[0];
+//     }
+
+//     getValues() {
+//         return this.value;
+//     }
+
+//     set modifyValue(num) {
+//         this.value = this.value.push(num);
+//     }
+
+//     static addValues() {
+//         let result = 0;
+//         let value = [20, 30, 40];
+//         for (const i of value) {
+//             result += i;
+//         }
+//         return result;
+//     }
+
+
+// }
+
+// const color = new Color(30, 20, 40);
+// const diffColor = new Color(50, 60, 70);
+// console.log(typeof color.getValues());
+
+// console.log(Color.addValues());
+
+
+//Inheritance
+class Color {
+    value;
+    constructor() {
+        this.value = [20, 30, 40];
+    }
+
+    redChange(diffColor) {
+        if(!(value in diffColor)) {
+            return;
+        }
+        return this.value[0] = diffColor.value[0];
+    }
+
+    getValues() {
+        return this.value;
+    }
+
+    set modifyValue(num) {
+        this.value = this.value.push(num);
+    }
+
+    static addValues() {
+        let result = 0;
+        let value = [20, 30, 40];
+        for (const i of value) {
+            result += i;
+        }
+        return result;
+    }
+
+
+}
+
+class ColorTwo extends Color {
+    constructor() {
+        super();
+        this.valuesArr2 = [40, 20, 10];
+    }
+}
+
+const colorTwo = new ColorTwo;
+
+console.log(colorTwo.value);
+console.log(colorTwo.getValues());
+
+
+class Person {
+    constructor(firstName){
+        this.firstName = firstName;
+    }
+
+    set firstname(name) {
+        this.firstName = name;
+    }
+}
+
+const person = new Person("Victor");
+
+person.firstname = "Sam";
+
+console.log(person.firstName);
+
+
+
+class ClassWithGetSet {
+    #msg = "hello world";
+    get msg() {
+      return this.#msg;
+    }
+    set msg(x) {
+      this.#msg = `hello ${x}`;
+    }
+}
+  
+  const instance = new ClassWithGetSet();
+  console.log(instance.msg); // "hello world"
+  
+  instance.msg = "cake";
+  console.log(instance.msg); // "hello cake"
+
+  
+  
 
 
 
